@@ -1,0 +1,99 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+
+
+<style>
+
+
+   .form_style{
+        width :280px;
+        position : absolute;
+        top : 50%;
+        left :50%;
+        transform :translate(-50%,-50%);
+        color: black;
+    }
+
+      .heading{
+        float:left;
+        font-size:40px;
+        border-bottom: 6px solid;
+        margin-bottom :10px;
+        padding :10px 0;
+        align-text: center;
+    }
+
+    .text-box{
+        width : 100%;
+        overflow : hidden;
+        font-size : 20px;
+        padding : 8px 0;
+        border-bottom : 1px solid #4caf50;
+    }
+    .text-box i{
+        width : 26px;
+        float : left;
+        text-align : center;
+    }
+    .text-box input{
+        border: none;
+        outline: none;
+        background : none;
+        color : whiye;
+        font-size : 18px;
+        width : 80%;
+        float : left;
+        margin: 0 10px;
+    }
+    .btn{
+        width : 100%;
+        background : none;
+        border : 2px solid #4caf50;
+        color :white;
+        padding: 5 px;
+        cursor : pointer;
+        margin : 12px 0;
+    }
+</style>
+
+<marquee style=" font-family:'Monotype Corsiva'; font-size : 25px ; color: green ; background-color : black ; font-weight: bold ; margin-top : 1%">
+    User Login
+</marquee>
+
+<form class="form_style  mt-4" method="post" >
+    {% csrf_token %}
+
+        <h1 class="heading mt-4">Login</h1>
+        <div class="text-box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="email" placeholder="Enter Email-Id" name="emailid">
+        </div>
+         <div class="text-box">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" placeholder="Enter Password" name="pwd">
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="login" style="margin-top:2% ; color:darkcyan ; background-color:black ; height:40px">
+    <a href="{% url 'user_signup' %}" class="btn btn-primary" style="background-color:blue">Create Account</a>
+</form>
+
+
+
+{% ifequal error "no" %}
+<script>
+    alert("Login Successfull");
+    window.location = ('{% url 'user_home' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Login unsuccessfull");
+</script>
+{% endifequal %}
+
+{% endblock %}

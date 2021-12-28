@@ -1,0 +1,28 @@
+{% load static %}
+<div class="mt-3" style="background-color: black ; width:100% ; height:350px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-3">
+                <h4 style="color:white">Contact Information</h4>
+                <p style="color:yellow ; font-size:18px"><i class="fa fa-map-marker" style="color:red"></i> Old Court More Durgapur West Bengal</p>
+                <p style="color:yellow ; font-size:18px"><i class="fa fa-envelope" style="color:red"></i> animeshsingh2481@gmail.com </p>
+                <p style="color:yellow ; font-size:18px"><i class="fa fa-mobile" style="color:red"></i> +91 6296116613 / +91 7074826715  </p>
+            </div>
+
+            <div class="col-md-4 mt-3">
+                <h4 style="color:white">Online Placement </h4>
+                <p style="color:yellow ; font-size:18px">An employment website is a website that deals with specifically with the employment or career. Many employment website are designed to allow employers to post jobs requirements for a postion to be filled and are commonly know as a job boards</p>
+            </div>
+
+            <div class="col-md-4 mt-3">
+            <h4 style="color:white">Newsletter</h4>
+            <p style="color:yellow ; font-size:18px">If you want the any extra information then send me your email-id</p>
+            <form method="post" class="forn-inline">
+                {% csrf_token %}
+                <input type="email" name="emailid" placeholder="Email-Id" required="true" class="forn-control mr-2">
+                <input type="submit"  value="send" class="btn btn-primary">
+            </form>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'admin_navigation.html' %}
+
+<marquee style=" font-family:'Monotype Corsiva'; font-size : 25px ; color: green ; background-color : black ; font-weight: bold ; margin-top : 1%">
+    View Pending Recruiters
+</marquee>
+
+<hr>
+
+<form class="form_style mt-4" method="post">
+    {% csrf_token %}
+
+        <div class="text-box">
+            <label><b>Recruiter Name</b></label>
+            <input type="text" class="form-control" name="uname" value="{{recruiter.user.first_name}} {{recruiter.user.last_name}}">
+        </div>
+         <div class="text-box">
+             <label><b>Status</b></label>
+            <select class="from-control" name="status">
+                <option value="Accept">Accept</option>
+                <option value="Reject">Reject</option>
+            </select>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit" style="margin-top:2% ; color:darkcyan ; background-color:black ; height:40px">
+</form>
+
+{% ifequal error "no" %}
+<script>
+    alert("Status changed Successfully")
+    window.location = ('{% url 'all_recruiters' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Status changed Unsuccessfully!! Something went wrong try again.")
+</script>
+{% endifequal %}
+
+{% endblock %}

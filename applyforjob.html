@@ -1,0 +1,48 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'user_navigation.html' %}
+
+<style>
+    tr{text-align : center}
+</style>
+
+<marquee style=" font-family:'Monotype Corsiva'; font-size : 25px ; color: green ; background-color : black ; font-weight: bold ; margin-top : 1%">
+    Apply For Job
+</marquee>
+
+<hr>
+<div class="container shadow-lg py-2 mb-4" >
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <label class="font-weight-bold">Upload Resume</label>
+        <input type="file" class="form-control" name="resume" accept="application/pdf">
+    </div>
+    <input type="submit" value="submit" class="btn btn-danger mt-3">
+</form>
+</div>
+
+{% ifequal error "close" %}
+<script>
+    alert(' Application line are close, last date is over ')
+    window.location = ('{% url 'user_latestjob' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "NotOpenYet" %}
+<script>
+    alert(' Application line is not open yet, please check the posting date first ')
+    window.location = ('{% url 'user_latestjob' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "done" %}
+<script>
+    alert(' Job Application is successfully Submitted')
+    window.location = ('{% url 'user_latestjob' %}')
+</script>
+{% endifequal %}
+
+{% endblock %}

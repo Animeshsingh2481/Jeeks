@@ -1,0 +1,197 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    .contact {
+        position: relative;
+        min-height =100vh;
+        padding : 50px 100px;
+        display : flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: url(static/bg1.jpg);
+        background-size: cover;
+    }
+
+    .contact .content{
+        max-width: 800px;
+        text-align:  center;
+    }
+
+    .contact .content h2{
+        font-size: 36px;
+        font-weight: 500;
+        color: #fff;
+    }
+     .contact .content p{
+
+        font-weight: 300;
+        color: #fff;
+    }
+    .cont {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .cont .contactInfo{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .cont .contactInfo .box{
+        position: relative;
+        padding: 20px 0;
+        display: flex;
+    }
+    .cont .contactInfo .box .icon{
+        min-width: 60px;
+        height: 60px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 22px;
+    }
+    .cont .contactInfo .box .text{
+        display: flex;
+        margin-left: 20px;
+        font-size: 16px;
+        color: #fff;
+        flex-direction: column;
+        font-weight: 300;
+    }
+    .cont .contactInfo .box h3{
+        font-weight: 500;
+        color: #00bcd4;
+
+    }
+    .contactForm{
+        width: 40%;
+        padding: 40px;
+        background: #fff;
+    }
+    .contactForm h2{
+        font-size: 30px;
+        color: #333;
+        font-weight: 500;
+    }
+    .contactForm inputBox{
+        position: relative:
+        width: 100%;
+        margin-top: 10px;
+    }
+    .contactForm .inputBox input,
+    .contactForm .inputBox textarea{
+        width: 100%;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 2px solid #333;
+        outline: none;
+        resize: none;
+    }
+    .contactForm .inputBox span{
+        left: 0;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        pointer-events: none;
+        transition: 0.5%;
+        color: #222;
+    }
+    .contactForm .inputBox input:focus ~ span,
+    contactForm .inputBox input:valid ~ span,
+    contactForm .inputBox textarea:focus ~ span,
+    contactForm .inputBox textarea:valid ~ span
+     {
+        color: #e91e63;
+        font-size: 12px;
+        transform: translate(-20px);
+    }
+    .contactForm .inputBox input[type="submit"]
+    {
+        width: 100px;
+        background: #00bcd4;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 18px;
+    }
+</style>
+
+
+<hr>
+<body>
+    <section class="contact">
+        <div class="content">
+            <h2> Contact Us</h2>
+            <p>Hi, Welcome to our website
+            If you have any queries, please feel free to drop a line. If you don't get an answer immediately. I might  just be travelling  through the middle of nowhere. I will back to you as soon as I can. That's a promise</p>
+        </div>
+        <div class="cont">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>4/6--Benachity-Road <br> Durgapur, West Bengal <br>713203 </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-phone-square" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>+91 6296116613, +91 7074826715, +91 8617682259, +91 9155891936, +91 8101467212</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p><a href="mailto:animeshsingh2481@gmail.com" style="color:yellow">animeshsingh2481@gmail.com</a> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form>
+                    <h2>
+                        Send Message
+                    </h2>
+                    <div class="inputBox">
+                        <input type="text" name="" required>
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="" required>
+                        <span>Email</span>
+                    </div>
+                       <div class="inputBox">
+                           <textarea required></textarea>
+                           <span>Type your message.....</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="send" value="send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+{% include 'footer.html' %}
+{% endblock %}
